@@ -56,7 +56,12 @@ public class DBBench implements Runnable{
     }
 
     public void prepare() throws SQLException, ClassNotFoundException {
+        System.out.printf("connecting to database server %s on port %d with user %s...\n", config.getHost(),
+                config.getPort(), config.getUser());
+
         Connection conn = getConn();
+        System.out.println("connected!");
+
         String sql = "drop table if exists test1";
         conn.prepareCall(sql).execute();
 
@@ -107,7 +112,7 @@ public class DBBench implements Runnable{
 
             if (cnt % config.getBatch_num() == 0) {
                 ps.executeBatch();
-                System.out.printf("(thread:%d) %d rows inserted.\n", Thread.currentThread().getId(), config.getBatch_num());
+                //System.out.printf("(thread:%d) %d rows inserted.\n", Thread.currentThread().getId(), config.getBatch_num());
                 setRows_num(cnt);
             }
         }
@@ -130,6 +135,6 @@ public class DBBench implements Runnable{
         close();
         setDone(true);
 
-        System.out.printf("thread %d finished!\n", Thread.currentThread().getId());
+        //System.out.printf("thread %d finished!\n", Thread.currentThread().getId());
     }
 }

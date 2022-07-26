@@ -9,9 +9,14 @@ public class Config {
     private int col_num;
     private int row_num;
     private int thread_num;
-    final int field_len = 10;
-    final int batch_num = 1000;
-    final int interval = 5;
+    private int field_len;
+    private int batch_num;
+
+    public void setInterval(int interval) {
+        this.interval = interval;
+    }
+
+    private int interval = 5;
 
     public int getInterval() {
         return interval;
@@ -77,17 +82,17 @@ public class Config {
         return batch_num;
     }
 
-    /*public void setBatch_num(int batch_num) {
+    public void setBatch_num(int batch_num) {
         this.batch_num = batch_num;
-    }*/
+    }
 
     public int getField_len() {
         return field_len;
     }
 
-    /*public void setField_len(int field_len) {
+    public void setField_len(int field_len) {
         this.field_len = field_len;
-    }*/
+    }
 
     public int getThread_num() {
         return thread_num;
