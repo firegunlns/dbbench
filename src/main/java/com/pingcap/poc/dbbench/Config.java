@@ -1,9 +1,21 @@
 package com.pingcap.poc.dbbench;
 
 public class Config {
-    String host;
-    int port;
-    String database;
+    private String host;
+    private int port;
+    private String database;
+    private String user;
+    private String password;
+    private int col_num;
+    private int row_num;
+    private int thread_num;
+    final int field_len = 10;
+    final int batch_num = 1000;
+    final int interval = 5;
+
+    public int getInterval() {
+        return interval;
+    }
 
     public String getHost() {
         return host;
@@ -61,29 +73,21 @@ public class Config {
         this.row_num = row_num;
     }
 
-    String user;
-    String password;
-    int col_num;
-    int row_num;
-    int thread_num;
-    int field_len;
-    int batch_num;
-
     public int getBatch_num() {
         return batch_num;
     }
 
-    public void setBatch_num(int batch_num) {
+    /*public void setBatch_num(int batch_num) {
         this.batch_num = batch_num;
-    }
+    }*/
 
     public int getField_len() {
         return field_len;
     }
 
-    public void setField_len(int field_len) {
+    /*public void setField_len(int field_len) {
         this.field_len = field_len;
-    }
+    }*/
 
     public int getThread_num() {
         return thread_num;
